@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: antiquewhite;
+}
+
+h1 {
+  color: cornflowerblue;
+}
+h2 {
+  color: darkcyan;
+}
+h3 {
+  color: darkslateblue;
+}
