@@ -26,9 +26,10 @@ Feel free to explore each section for more details.
 
 Enhance my React knowledge with these valuable resources:
 
-- [React Documentation](https://reactjs.org/docs/getting-started.html)
-- [React Hooks Guide](https://reactjs.org/docs/hooks-intro.html)
-- [React Router Documentation](https://reactrouter.com/)
+- [React Documentation](https://react.dev/learn)
+- [React Hooks Guide](https://react.dev/reference/react/hooks)
+- [React Router Documentation](https://reactrouter.com/en/main)
+
 
 Feel free to suggest more resources through pull requests! 🚀
 
