@@ -1,8 +1,22 @@
 import ResCard from "./ResCard";
-import resList from "../utils/mockdata";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    const response = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const data = await response.json();
+    console.log(
+      data.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+    );
+    setListOfRestaurants(
+      data.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+    );
+  };
   let listOfRestaurants2 = [
     {
       info: {
@@ -47,7 +61,6 @@ const Body = () => {
       },
     },
   ];
-  console.log(listOfRestaurants);
   return (
     <div id="body">
       <div id="filter">
