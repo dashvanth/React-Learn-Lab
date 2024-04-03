@@ -1,6 +1,8 @@
+import { useState } from "react";
 import biteFleetLogo from "../utils/Assets/bitefleet-logo.png";
 
 const Header = () => {
+  const [btnName, setBtnName] = useState("Login");
   return (
     <div className="header">
       <div className="logo-container">
@@ -21,6 +23,18 @@ const Header = () => {
             <a href="#">
               <i className="fa-solid fa-cart-shopping"></i>
             </a>
+          </li>
+          <li>
+            <button
+              className="login"
+              onClick={() => {
+                btnName === "Login"
+                  ? setBtnName("Logout")
+                  : setBtnName("Login");
+              }}
+            >
+              {btnName}
+            </button>
           </li>
         </ul>
       </div>

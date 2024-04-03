@@ -38,14 +38,16 @@
 .nav-items ul li {
   list-style-type: none;
 }
-#res-container {
+#res-container,
+#shimmer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
-#res-card {
+#res-card,
+.shimmer-cards {
   width: 30%;
   border: 1px solid black;
   padding: 10px;
@@ -63,12 +65,73 @@
   gap: 1rem;
   font-weight: bold;
 }
-
+#body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+#filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 #filter button {
   background-color: red;
   padding: 4px 10px;
   border: none;
   border-radius: 4px;
-  color: azure;
+  color: antiquewhite;
   font-weight: bold;
+}
+#filter #search-container {
+  display: flex;
+  gap: 0.7rem;
+}
+#filter #search-container input {
+  padding: 0 20px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+#filter #search-container input::placeholder {
+  color: gray;
+  font-weight: 500;
+}
+#search-container button {
+  background-color: red;
+}
+.shimmer-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+#shimmer-img {
+  width: 100%;
+  height: 180px;
+  background-color: rgb(230, 230, 230);
+}
+#shimmer-res-name,
+.shimmer-delivery-time,
+.shimmer-cuisine {
+  background-color: rgb(230, 230, 230);
+  width: 100%;
+  height: 20px;
+}
+.shimmer-cards i {
+  color: rgb(230, 230, 230);
+}
+
+.login {
+  padding: 5px 15px;
+  font-weight: bold;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  color: antiquewhite;
+  cursor: pointer;
+}
+.login:hover,
+#filter button:hover {
+  background-color: rgb(240, 1, 1);
 }
