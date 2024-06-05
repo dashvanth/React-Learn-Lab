@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import biteFleetLogo from "../utils/Assets/bitefleet-logo.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
+
   return (
     <div className="header">
       <div className="logo-container">
@@ -11,18 +13,18 @@ const Header = () => {
       <div className="nav-items">
         <ul>
           <li>
-            <a href="#">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#">About Us</a>
+            <Link to="/about">About us</Link>
           </li>
           <li>
-            <a href="#">Contact Us</a>
+            <Link to="/contact">Contact us</Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="#">
               <i className="fa-solid fa-cart-shopping"></i>
-            </a>
+            </Link>
           </li>
           <li>
             <button

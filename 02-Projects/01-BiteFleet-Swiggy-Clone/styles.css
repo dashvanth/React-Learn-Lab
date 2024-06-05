@@ -46,7 +46,16 @@
   gap: 1rem;
   flex-wrap: wrap;
 }
-#res-card,
+#res-card {
+  width: 300px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .shimmer-cards {
   width: 30%;
   border: 1px solid black;
@@ -58,12 +67,23 @@
   height: 180px;
   border-radius: 10px;
 }
+#res-card {
+  text-decoration: none;
+}
+.rating {
+  color: rgb(130, 119, 22);
+}
 .rating-delivery-time {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
   font-weight: bold;
+  color: coral;
+}
+.cuisine {
+  font-style: italic;
+  font-weight: 500;
 }
 #body {
   display: flex;
@@ -134,4 +154,11 @@
 .login:hover,
 #filter button:hover {
   background-color: rgb(240, 1, 1);
+}
+
+#user-card {
+  border: 1px solid black;
+  padding: 10px;
+  width: fit-content;
+  margin: 0 auto;
 }

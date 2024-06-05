@@ -1,10 +1,11 @@
 import ResCard from "./ResCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -12,15 +13,19 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const data = await response.json();
-    const restaurants =
-      data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants || [];
-    setListOfRestaurants(restaurants);
-    setFilteredRestaurant(restaurants);
+    try {
+      const response = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
+      const data = await response.json();
+      const restaurants =
+        data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants || [];
+      setListOfRestaurants(restaurants);
+      setFilteredRestaurants(restaurants);
+    } catch (err) {
+      return <h1>Error : {err}</h1>;
+    }
   };
 
   const handleFilter = () => {
@@ -31,10 +36,10 @@ const Body = () => {
   };
 
   const handleSearch = () => {
-    const filteredRestaurant = listOfRestaurants.filter((res) =>
+    const filSearchRestaurant = listOfRestaurants.filter((res) =>
       res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
     );
-    setFilteredRestaurant(filteredRestaurant);
+    setFilteredRestaurants(filSearchRestaurant);
   };
 
   return listOfRestaurants.length === 0 ? (
@@ -61,8 +66,14 @@ const Body = () => {
         </button>
       </div>
       <div id="res-container">
-        {filteredRestaurant.map((restaurant) => (
-          <ResCard key={restaurant.info.id} resData={restaurant} />
+        {filteredRestaurants.map((restaurant) => (
+          <Link
+            style={{ textDecoration: "none", color: "inherit" }}
+            key={restaurant.info.id}
+            to={"restaurants/" + restaurant.info.id}
+          >
+            <ResCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
